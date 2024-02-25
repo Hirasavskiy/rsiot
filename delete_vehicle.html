@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удалить транспортное средство</title>
+</head>
+<body>
+    <h1>Удалить транспортное средство</h1>
+
+    <form action="/delete_vehicle" method="POST">
+        <label for="vehicle_id">Введите ID транспортного средства для удаления:</label>
+        <input type="number" id="vehicle_id" name="vehicle_id" required><br><br>
+
+        <button type="submit">Удалить</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить транспортное средство</title>
+</head>
+<body>
+    <h1>Добавить новое транспортное средство</h1>
+
+    <form id="vehicleForm" action="/vehicles" method="POST" enctype="application/x-www-form-urlencoded">
+        <label for="brand">Марка:</label>
+        <input type="text" id="brand" name="brand" required><br><br>
+
+        <label for="model">Модель:</label>
+        <input type="text" id="model" name="model" required><br><br>
+
+        <label for="year">Год выпуска:</label>
+        <input type="number" id="year" name="year" required><br><br>
+
+        <label for="license_plate">Гос. номер:</label>
+        <input type="text" id="license_plate" name="license_plate" required><br><br>
+
+        <label for="vehicle_type">Тип транспортного средства:</label>
+        <input type="text" id="vehicle_type" name="vehicle_type" required><br><br>
+
+        <button type="submit">Добавить</button>
+    </form>
+
+    <!-- Здесь вы можете добавить дополнительный контент или функциональность -->
+
+    <script>
+        document.getElementById("vehicleForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var formData = new FormData(this);
+    var jsonData = {};
+    formData.forEach(function(value, key){
+        jsonData[key] = value;
+    });
+    fetch('/vehicles', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        alert("Vehicle added successfully");
+        // Добавьте здесь код для перенаправления пользователя или других действий
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+
+    });
+});
+
+    </script>
+</body>
+</html>
