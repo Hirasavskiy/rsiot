@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменить транспортное средство</title>
+    <!-- Подключение шрифта Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение вашего собственного файла стилей, если есть -->
+    <style>
+            .navbar {
+        background-color: #28a745; /* Зеленый фон для шапки */
+    }
+    .navbar-brand {
+        color: #fff; /* Белый текст для названия в шапке */
+        font-weight: bold; /* Жирный текст */
+        text-align: center; /* Центрирование текста */
+        width: 100%; /* Ширина на всю ширину */
+    }
+    .list-group-item a.btn {
+        background-color: #28a745; /* Зеленый цвет для кнопок */
+        border-color: #28a745; /* Зеленый цвет для рамки кнопок */
+    }
+        body {
+
+            font-family: 'Roboto', sans-serif; /* Установка шрифта Roboto */
+            background-color: #f8f9fa; /* Цвет фона */
+        }
+        h1 {
+            font-weight: bold; /* Жирный текст */
+            color: #28a745; /* Зеленый цвет для заголовка */
+            text-align: center; /* Центрирование текста */
+            font-size: 2rem; /* Увеличение размера шрифта */
+            margin-top: 2rem; /* Отступ сверху */
+            margin-bottom: 1rem; /* Отступ снизу */
+        }
+        label {
+            font-weight: bold; /* Жирный текст для меток */
+            font-size: 1.2rem; /* Увеличение размера шрифта меток */
+            color: #495057; /* Цвет текста меток */
+        }
+        input[type="text"] {
+            width: 100%; /* Ширина текстовых полей на 100% */
+            padding: 10px; /* Поля вокруг текста */
+            margin-bottom: 1rem; /* Отступ снизу */
+            border: 1px solid #ced4da; /* Рамка */
+            border-radius: 5px; /* Скругление углов */
+            box-sizing: border-box; /* Учитываем рамку в размере элемента */
+            font-size: 1.2rem; /* Увеличение размера шрифта текстовых полей */
+        }
+        button[type="submit"] {
+            padding: 10px 20px; /* Поля вокруг текста */
+            border: none; /* Убираем рамку */
+            border-radius: 5px; /* Скругление углов */
+            background-color: #28a745; /* Зеленый цвет для кнопки */
+            color: #fff; /* Белый цвет текста */
+            cursor: pointer; /* Изменение курсора при наведении */
+            font-size: 1.2rem; /* Увеличение размера шрифта кнопки */
+        }
+        button[type="submit"]:hover {
+            background-color: #218838; /* Цвет кнопки при наведении */
+        }
+        .container {
+            margin-top: 50px; /* Отступ сверху */
+            max-width: 400px; /* Максимальная ширина контейнера */
+            padding: 20px; /* Поля вокруг содержимого */
+            background-color: #fff; /* Цвет фона контейнера */
+            border-radius: 10px; /* Скругление углов контейнера */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень контейнера */
+            margin-left: auto; /* Автоматическое выравнивание по центру по горизонтали */
+            margin-right: auto; /* Автоматическое выравнивание по центру по горизонтали */
+        }
+    </style>
+</head>
+<body>
+    <h1>Изменить транспортное средство</h1>
+
+    <div class="container">
+        <form action="/edit_vehicle" method="POST">
+            <div class="form-group">
+                <label for="vehicle_id">ID транспортного средства:</label>
+                <input type="text" id="vehicle_id" name="vehicle_id">
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Марка:</label>
+                <input type="text" id="brand" name="brand">
+            </div>
+
+            <div class="form-group">
+                <label for="model">Модель:</label>
+                <input type="text" id="model" name="model">
+            </div>
+
+            <div class="form-group">
+                <label for="year">Год выпуска:</label>
+                <input type="text" id="year" name="year">
+            </div>
+
+            <div class="form-group">
+                <label for="license_plate">Гос. номер:</label>
+                <input type="text" id="license_plate" name="license_plate">
+            </div>
+
+            <div class="form-group">
+                <label for="vehicle_type">Тип транспорта:</label>
+                <input type="text" id="vehicle_type" name="vehicle_type">
+            </div>
+
+            <button type="submit">Изменить</button>
+        </form>
+    </div>
+
+    <!-- Подключение Bootstrap JS (необходим для некоторых функций Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

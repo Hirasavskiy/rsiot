@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Добавить транспортное средство</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение вашего собственного файла стилей, если есть -->
+    <style>
+        .jumbotron {
+            background-color: #28a745; /* Зеленый фон */
+            color: #fff; /* Белый текст */
+        }
+        .form-control {
+            font-size: 24px; /* Увеличение размера текстовых полей */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Добавить новое транспортное средство</h1>
+            <form id="vehicleForm" action="/vehicles" method="POST" enctype="application/x-www-form-urlencoded">
+                <div class="form-group">
+                    <label for="brand">Марка:</label>
+                    <input type="text" class="form-control" id="brand" name="brand" required>
+                </div>
+                <div class="form-group">
+                    <label for="model">Модель:</label>
+                    <input type="text" class="form-control" id="model" name="model" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Год выпуска:</label>
+                    <input type="number" class="form-control" id="year" name="year" required>
+                </div>
+                <div class="form-group">
+                    <label for="license_plate">Гос. номер:</label>
+                    <input type="text" class="form-control" id="license_plate" name="license_plate" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle_type">Тип транспортного средства:</label>
+                    <input type="text" class="form-control" id="vehicle_type" name="vehicle_type" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg">Добавить</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JS (необходим для некоторых функций Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById("vehicleForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var jsonData = {};
+            formData.forEach(function(value, key){
+                jsonData[key] = value;
+            });
+            fetch('/vehicles', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                alert("Vehicle added successfully");
+                // Добавьте здесь код для перенаправления пользователя или других действий
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+        });
+    </script>
+</body>
+</html>

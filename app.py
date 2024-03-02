@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template, redirect
 from models.database import execute_query, execute_non_query
 
-app = Flask(__name__, template_folder='.')
+app = Flask(__name__)
 
 # Функция для проверки существования транспортного средства с заданным ID
 def vehicle_exists(vehicle_id):
@@ -46,19 +46,8 @@ def edit_vehicle_form():
 def get_vehicles():
     query = "SELECT * FROM vehicles"
     cursor = execute_query(query)
-
-    # Получаем имена столбцов из cursor.description
-    columns = [column[0] for column in cursor.description]
-
-    # Преобразуем каждую строку в словарь, используя имена столбцов
-    vehicles = []
-    for row in cursor:
-        vehicle_dict = {}
-        for i in range(len(columns)):
-            vehicle_dict[columns[i]] = row[i]
-        vehicles.append(vehicle_dict)
-
-    return jsonify(vehicles)
+    vehicles = cursor.fetchall()
+    return render_template('vehicles.html', vehicles=vehicles)
 
 # Маршрут для добавления нового транспортного средства
 @app.route('/vehicles', methods=['POST'])

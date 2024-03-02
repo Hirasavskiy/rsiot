@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удалить транспортное средство</title>
+    <!-- Подключение шрифта Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение вашего собственного файла стилей, если есть -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Установка шрифта Roboto */
+            background-color: #f8f9fa; /* Цвет фона */
+        }
+        h1 {
+            font-weight: bold; /* Жирный текст */
+            color: #28a745; /* Зеленый цвет для заголовка */
+            text-align: center; /* Центрирование текста */
+        }
+        label {
+            font-weight: bold; /* Жирный текст для меток */
+        }
+        input[type="number"] {
+            width: 100%; /* Ширина текстового поля на 100% */
+            padding: 10px; /* Поля вокруг текста */
+            margin-bottom: 10px; /* Отступ снизу */
+            border: 1px solid #ccc; /* Рамка */
+            border-radius: 5px; /* Скругление углов */
+            box-sizing: border-box; /* Учитываем рамку в размере элемента */
+        }
+        button[type="submit"] {
+            padding: 10px 20px; /* Поля вокруг текста */
+            border: none; /* Убираем рамку */
+            border-radius: 5px; /* Скругление углов */
+            background-color: #dc3545; /* Красный цвет для кнопки */
+            color: #fff; /* Белый цвет текста */
+            cursor: pointer; /* Изменение курсора при наведении */
+        }
+        button[type="submit"]:hover {
+            background-color: #c82333; /* Цвет кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="display-4 mt-5 mb-4">Удалить транспортное средство</h1>
+
+    <div class="container">
+        <form action="/delete_vehicle" method="POST">
+            <div class="form-group">
+                <label for="vehicle_id">Введите ID транспортного средства для удаления:</label>
+                <input type="number" id="vehicle_id" name="vehicle_id" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-danger btn-block">Удалить</button>
+        </form>
+    </div>
+
+    <!-- Подключение Bootstrap JS (необходим для некоторых функций Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

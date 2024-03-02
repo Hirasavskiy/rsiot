@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Трекинг транспорта</title>
+
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение вашего собственного файла стилей, если есть -->
+    <style>
+        .navbar {
+            background-color: #28a745; /* Зеленый фон для шапки */
+        }
+        .navbar-brand {
+            color: #fff; /* Белый текст для названия в шапке */
+            font-weight: bold; /* Жирный текст */
+            text-align: center; /* Центрирование текста */
+            width: 100%; /* Ширина на всю ширину */
+        }
+        .list-group-item a.btn {
+            background-color: #28a745; /* Зеленый цвет для кнопок */
+            border-color: #28a745; /* Зеленый цвет для рамки кнопок */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand display-4" href="#">Добро пожаловать в приложение Трекинг транспорта!</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <ul class="list-group mt-4">
+            <li class="list-group-item"><a href="/add_vehicle" class="btn btn-primary btn-block btn-lg text-white">Добавить транспортное средство</a></li>
+            <li class="list-group-item"><a href="/vehicles" class="btn btn-primary btn-block btn-lg text-white">Просмотреть список транспортных средств</a></li>
+            <li class="list-group-item"><a href="/delete_vehicle" class="btn btn-primary btn-block btn-lg text-white">Удалить транспортное средство</a></li>
+            <li class="list-group-item"><a href="/edit_vehicle" class="btn btn-primary btn-block btn-lg text-white">Изменить данные о транспорте</a></li>
+            <!-- Другие ссылки на ваши страницы, если это необходимо -->
+        </ul>
+
+        <!-- Здесь вы можете добавить дополнительный контент или функциональность -->
+    </div>
+
+    <!-- Подключение Bootstrap JS (необходим для некоторых функций Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
